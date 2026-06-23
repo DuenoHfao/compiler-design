@@ -4,6 +4,6 @@ scan-ref: '.'
 cache: false
 format: json
 exit-code: 1
-severity: CRITICAL, HIGH
+severity: ["CRITICAL", "HIGH"]
 secret:
   config: config/trivy/secret.yaml
