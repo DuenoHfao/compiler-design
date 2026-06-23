@@ -1,6 +1,3 @@
-scan-type: 'fs'
-scan-ref: '.'
-
 cache: false
 format: json
 exit-code: 1
