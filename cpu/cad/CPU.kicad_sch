@@ -2940,7 +2940,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Simulation_SPICE:VSIN"
+		(symbol "Simulation_SPICE:VPULSE"
 			(pin_numbers
 				(hide yes)
 			)
@@ -2963,7 +2963,7 @@
 					(justify left)
 				)
 			)
-			(property "Value" "VSIN"
+			(property "Value" "VPULSE"
 				(at 2.54 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -2996,7 +2996,7 @@
 					)
 				)
 			)
-			(property "Description" "Voltage source, sinusoidal"
+			(property "Description" "Voltage source, pulse"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -3018,18 +3018,7 @@
 					)
 				)
 			)
-			(property "Sim.Params" "dc=0 ampl=1 f=1k ac=1"
-				(at 2.54 -2.54 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Sim.Type" "SIN"
+			(property "Sim.Type" "PULSE"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -3052,7 +3041,18 @@
 					(justify left)
 				)
 			)
-			(property "ki_keywords" "simulation ac vac"
+			(property "Sim.Params" "y1=0 y2=1 td=2n tr=2n tf=2n tw=50n per=100n"
+				(at 2.54 -2.54 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "ki_keywords" "simulation"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -3063,23 +3063,12 @@
 					)
 				)
 			)
-			(symbol "VSIN_0_0"
-				(arc
-					(start -1.27 0)
-					(mid -0.635 0.6323)
-					(end 0 0)
-					(stroke
-						(width 0)
-						(type default)
+			(symbol "VPULSE_0_0"
+				(polyline
+					(pts
+						(xy -2.032 -0.762) (xy -1.397 -0.762) (xy -1.143 0.762) (xy -0.127 0.762) (xy 0.127 -0.762) (xy 1.143 -0.762)
+						(xy 1.397 0.762) (xy 2.032 0.762)
 					)
-					(fill
-						(type none)
-					)
-				)
-				(arc
-					(start 1.27 0)
-					(mid 0.635 -0.6323)
-					(end 0 0)
 					(stroke
 						(width 0)
 						(type default)
@@ -3097,7 +3086,7 @@
 					)
 				)
 			)
-			(symbol "VSIN_0_1"
+			(symbol "VPULSE_0_1"
 				(circle
 					(center 0 0)
 					(radius 2.54)
@@ -3110,7 +3099,7 @@
 					)
 				)
 			)
-			(symbol "VSIN_1_1"
+			(symbol "VPULSE_1_1"
 				(pin passive line
 					(at 0 5.08 270)
 					(length 2.54)
@@ -3150,7 +3139,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "power:AC"
+		(symbol "power:+48V"
 			(power global)
 			(pin_numbers
 				(hide yes)
@@ -3165,7 +3154,7 @@
 			(in_pos_files yes)
 			(duplicate_pin_numbers_are_jumpers no)
 			(property "Reference" "#PWR"
-				(at 0 -2.54 0)
+				(at 0 -3.81 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(hide yes)
@@ -3175,8 +3164,8 @@
 					)
 				)
 			)
-			(property "Value" "AC"
-				(at 0 6.35 0)
+			(property "Value" "+48V"
+				(at 0 3.556 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
@@ -3207,7 +3196,7 @@
 					)
 				)
 			)
-			(property "Description" "Power symbol creates a global label with name \"AC\""
+			(property "Description" "Power symbol creates a global label with name \"+48V\""
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -3229,33 +3218,10 @@
 					)
 				)
 			)
-			(symbol "AC_0_1"
-				(arc
-					(start -1.27 3.175)
-					(mid -0.635 3.8073)
-					(end 0 3.175)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center 0 3.175)
-					(radius 1.905)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
+			(symbol "+48V_0_1"
 				(polyline
 					(pts
-						(xy 0 0) (xy 0 1.27)
+						(xy -0.762 1.27) (xy 0 2.54)
 					)
 					(stroke
 						(width 0)
@@ -3265,12 +3231,24 @@
 						(type none)
 					)
 				)
-				(arc
-					(start 1.27 3.175)
-					(mid 0.635 2.5427)
-					(end 0 3.175)
+				(polyline
+					(pts
+						(xy 0 2.54) (xy 0.762 1.27)
+					)
 					(stroke
-						(width 0.254)
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 0) (xy 0 2.54)
+					)
+					(stroke
+						(width 0)
 						(type default)
 					)
 					(fill
@@ -3278,7 +3256,7 @@
 					)
 				)
 			)
-			(symbol "AC_1_1"
+			(symbol "+48V_1_1"
 				(pin power_in line
 					(at 0 0 90)
 					(length 0)
@@ -3565,7 +3543,7 @@
 		(at 49.53 91.44)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "74d9c692-fb35-4482-99ef-344e8c31b44e")
+		(uuid "8dc02e52-8351-440f-b9fe-0615fe65a4a1")
 	)
 	(junction
 		(at 182.88 49.53)
@@ -3583,7 +3561,7 @@
 		(at 46.99 102.87)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "c717139a-2530-46c1-84ff-5ed5561a8488")
+		(uuid "ccc67f8b-2241-43ab-889e-f34c688065d9")
 	)
 	(junction
 		(at 157.48 21.59)
@@ -3655,6 +3633,16 @@
 	)
 	(wire
 		(pts
+			(xy 157.48 21.59) (xy 182.88 21.59)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "25e6b4ab-10ad-4391-b92c-10c80108a218")
+	)
+	(wire
+		(pts
 			(xy 102.87 21.59) (xy 121.92 21.59)
 		)
 		(stroke
@@ -3692,16 +3680,6 @@
 			(type default)
 		)
 		(uuid "45243f27-a103-4776-b6a2-eacf15161537")
-	)
-	(wire
-		(pts
-			(xy 157.48 17.78) (xy 157.48 21.59)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4aa39377-c544-4f4a-9208-0947ccc6e0bc")
 	)
 	(wire
 		(pts
@@ -3995,16 +3973,6 @@
 	)
 	(wire
 		(pts
-			(xy 157.48 21.59) (xy 182.88 21.59)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "df39c769-33d2-4b45-92b6-0f248f83d5e1")
-	)
-	(wire
-		(pts
 			(xy 99.06 100.33) (xy 118.11 100.33)
 		)
 		(stroke
@@ -4042,6 +4010,26 @@
 			(type default)
 		)
 		(uuid "edf2f76c-df52-49f3-86b4-3e6198fcb3e6")
+	)
+	(label "Out"
+		(at 110.49 100.33 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "5b648783-ede2-4fc4-a6f6-e779e8d9157f")
+	)
+	(label "Out1"
+		(at 114.3 124.46 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "c5a63972-2a86-4f7d-82ec-107eb1680e48")
 	)
 	(symbol
 		(lib_id "74xx:74LS32")
@@ -4274,134 +4262,6 @@
 				(path "/1a8c601c-d809-4b54-b429-0d6a4bf3d5fa"
 					(reference "U3")
 					(unit 5)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Simulation_SPICE:VSIN")
-		(at 22.86 86.36 0)
-		(mirror x)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "116c2421-cccc-423b-b3a7-fd3209196a56")
-		(property "Reference" "V2"
-			(at 26.67 89.0299 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "VSIN"
-			(at 26.67 86.4899 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 22.86 86.36 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://ngspice.sourceforge.io/docs/ngspice-html-manual/manual.xhtml#sec_Independent_Sources_for"
-			(at 22.86 86.36 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Voltage source, sinusoidal"
-			(at 22.86 86.36 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Sim.Pins" "1=+ 2=-"
-			(at 22.86 86.36 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Sim.Params" "dc=0 ampl=1 f=1k ac=1"
-			(at 26.67 83.9499 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Sim.Type" "SIN"
-			(at 22.86 86.36 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Sim.Device" "V"
-			(at 22.86 86.36 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(pin "1"
-			(uuid "2d3eda54-09c5-47fd-890b-6d0fd438a638")
-		)
-		(pin "2"
-			(uuid "3ea5d70f-415e-483a-86d9-dddac419d22c")
-		)
-		(instances
-			(project "CPU"
-				(path "/1a8c601c-d809-4b54-b429-0d6a4bf3d5fa"
-					(reference "V2")
-					(unit 1)
 				)
 			)
 		)
@@ -5187,6 +5047,132 @@
 		)
 	)
 	(symbol
+		(lib_id "Simulation_SPICE:VPULSE")
+		(at 38.1 80.01 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "63f90711-5ca1-4726-b8e3-266c57c15923")
+		(property "Reference" "V1"
+			(at 41.91 77.3401 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "VPULSE"
+			(at 41.91 79.8801 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 38.1 80.01 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://ngspice.sourceforge.io/docs/ngspice-html-manual/manual.xhtml#sec_Independent_Sources_for"
+			(at 38.1 80.01 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Voltage source, pulse"
+			(at 38.1 80.01 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Pins" "1=+ 2=-"
+			(at 38.1 80.01 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Type" "PULSE"
+			(at 38.1 80.01 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Device" "V"
+			(at 38.1 80.01 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Sim.Params" "y1=0 y2=5 td=2u tr=1u tf=1u tw=1 per=1 np=0 ac=1"
+			(at 17.78 58.42 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "2"
+			(uuid "131e445c-df63-47d6-8bee-f03cacf927b0")
+		)
+		(pin "1"
+			(uuid "06f6811e-295e-4c4a-89e8-1293150bbe54")
+		)
+		(instances
+			(project "CPU"
+				(path "/1a8c601c-d809-4b54-b429-0d6a4bf3d5fa"
+					(reference "V1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "74xx:74LS08")
 		(at 182.88 34.29 0)
 		(unit 5)
@@ -5383,6 +5369,84 @@
 		)
 	)
 	(symbol
+		(lib_id "power:+48V")
+		(at 157.48 21.59 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "8b034f7a-2cc5-41ae-ac90-e1797ac5dc5d")
+		(property "Reference" "#PWR03"
+			(at 157.48 25.4 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+48V"
+			(at 157.48 16.51 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 157.48 21.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 157.48 21.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+48V\""
+			(at 157.48 21.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "7124fa54-2c8a-4991-bc40-42080926394a")
+		)
+		(instances
+			(project "CPU"
+				(path "/1a8c601c-d809-4b54-b429-0d6a4bf3d5fa"
+					(reference "#PWR03")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "74xx:74HC86")
 		(at 76.2 88.9 0)
 		(unit 1)
@@ -5573,6 +5637,132 @@
 			(project "CPU"
 				(path "/1a8c601c-d809-4b54-b429-0d6a4bf3d5fa"
 					(reference "R1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Simulation_SPICE:VPULSE")
+		(at 21.59 106.68 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "a5056195-b713-4d57-9921-b6ad7e860d4f")
+		(property "Reference" "V3"
+			(at 25.4 104.0101 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "VPULSE"
+			(at 25.4 106.5501 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 21.59 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://ngspice.sourceforge.io/docs/ngspice-html-manual/manual.xhtml#sec_Independent_Sources_for"
+			(at 21.59 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Voltage source, pulse"
+			(at 21.59 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Pins" "1=+ 2=-"
+			(at 21.59 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Type" "PULSE"
+			(at 21.59 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Device" "V"
+			(at 21.59 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Sim.Params" "y1=0 y2=5 td=2u tr=1u tf=1u tw=1 per=1 np=0 ac=1"
+			(at 17.78 63.5 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "2"
+			(uuid "918054ec-414b-406f-8670-d5d34bc7683c")
+		)
+		(pin "1"
+			(uuid "f4bbaa4e-6370-4903-bbaf-ed9653855916")
+		)
+		(instances
+			(project "CPU"
+				(path "/1a8c601c-d809-4b54-b429-0d6a4bf3d5fa"
+					(reference "V3")
 					(unit 1)
 				)
 			)
@@ -5850,213 +6040,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:AC")
-		(at 157.48 17.78 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "c87255ff-d078-4cb6-8a1d-38213211ccbb")
-		(property "Reference" "#PWR01"
-			(at 157.48 20.32 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "AC"
-			(at 157.48 10.16 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 157.48 17.78 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 157.48 17.78 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"AC\""
-			(at 157.48 17.78 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "a239fb43-2efa-4338-b402-e9d0ddb6d882")
-		)
-		(instances
-			(project "CPU"
-				(path "/1a8c601c-d809-4b54-b429-0d6a4bf3d5fa"
-					(reference "#PWR01")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Simulation_SPICE:VSIN")
-		(at 38.1 80.01 0)
-		(mirror x)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "c9bafc56-87aa-4caf-9116-d36e50ad7398")
-		(property "Reference" "V1"
-			(at 41.91 82.6799 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "VSIN"
-			(at 41.91 80.1399 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 38.1 80.01 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://ngspice.sourceforge.io/docs/ngspice-html-manual/manual.xhtml#sec_Independent_Sources_for"
-			(at 38.1 80.01 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Voltage source, sinusoidal"
-			(at 38.1 80.01 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Sim.Pins" "1=+ 2=-"
-			(at 38.1 80.01 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Sim.Params" "dc=0 ampl=1 f=1k ac=1"
-			(at 41.91 77.5999 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Sim.Type" "SIN"
-			(at 38.1 80.01 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Sim.Device" "V"
-			(at 38.1 80.01 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(pin "1"
-			(uuid "40952999-25b7-4bcb-a9cb-53373a155c89")
-		)
-		(pin "2"
-			(uuid "4ce9daa5-3209-4cb7-988e-21f863d5c3d6")
-		)
-		(instances
-			(project "CPU"
-				(path "/1a8c601c-d809-4b54-b429-0d6a4bf3d5fa"
-					(reference "V1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 38.1 74.93 0)
 		(mirror x)
@@ -6135,9 +6118,8 @@
 		)
 	)
 	(symbol
-		(lib_id "Simulation_SPICE:VSIN")
-		(at 21.59 106.68 0)
-		(mirror x)
+		(lib_id "Simulation_SPICE:VPULSE")
+		(at 22.86 86.36 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -6145,9 +6127,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "d27bbdff-ceab-419e-9841-b09dc608db22")
-		(property "Reference" "V3"
-			(at 25.4 109.3499 0)
+		(uuid "d689fab3-1f46-420a-8396-327756b5a90f")
+		(property "Reference" "V2"
+			(at 26.67 83.6901 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6157,8 +6139,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "VSIN"
-			(at 25.4 106.8099 0)
+		(property "Value" "VPULSE"
+			(at 26.67 86.2301 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6169,7 +6151,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 21.59 106.68 0)
+			(at 22.86 86.36 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6180,7 +6162,7 @@
 			)
 		)
 		(property "Datasheet" "https://ngspice.sourceforge.io/docs/ngspice-html-manual/manual.xhtml#sec_Independent_Sources_for"
-			(at 21.59 106.68 0)
+			(at 22.86 86.36 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6190,8 +6172,8 @@
 				)
 			)
 		)
-		(property "Description" "Voltage source, sinusoidal"
-			(at 21.59 106.68 0)
+		(property "Description" "Voltage source, pulse"
+			(at 22.86 86.36 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6202,7 +6184,7 @@
 			)
 		)
 		(property "Sim.Pins" "1=+ 2=-"
-			(at 21.59 106.68 0)
+			(at 22.86 86.36 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6212,20 +6194,8 @@
 				)
 			)
 		)
-		(property "Sim.Params" "dc=0 ampl=1 f=1k ac=1"
-			(at 25.4 104.2699 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Sim.Type" "SIN"
-			(at 21.59 106.68 0)
+		(property "Sim.Type" "PULSE"
+			(at 22.86 86.36 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6236,7 +6206,7 @@
 			)
 		)
 		(property "Sim.Device" "V"
-			(at 21.59 106.68 0)
+			(at 22.86 86.36 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6247,16 +6217,27 @@
 				(justify left)
 			)
 		)
-		(pin "1"
-			(uuid "3f2dbd08-d3be-40b2-b776-8817565c5fcd")
+		(property "Sim.Params" "y1=0 y2=5 td=2u tr=1u tf=1u tw=1 per=1 np=0 ac=1"
+			(at 17.78 60.96 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
 		)
 		(pin "2"
-			(uuid "157479bb-7d29-4bc7-ab75-675fe7807c73")
+			(uuid "c7842587-f228-420b-8673-2429f65edb6c")
+		)
+		(pin "1"
+			(uuid "c24dfc2a-cf9b-4ee9-92f0-144fdf4900b4")
 		)
 		(instances
 			(project "CPU"
 				(path "/1a8c601c-d809-4b54-b429-0d6a4bf3d5fa"
-					(reference "V3")
+					(reference "V2")
 					(unit 1)
 				)
 			)
