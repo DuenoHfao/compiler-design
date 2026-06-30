@@ -2,7 +2,7 @@ name: Trivy
 on:
     push:
         branches:
-        - main
+        - staredge-configs
     pull_request:
     schedule:
         - cron: '0 0 1 * *'
