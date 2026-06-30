@@ -2,7 +2,7 @@ name: SonarQube
 on:
   push:
     branches:
-      - staredge-configs
+      - main
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
