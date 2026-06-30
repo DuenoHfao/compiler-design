@@ -1,0 +1,1 @@
+- [Serial Flash Memory with 4KB Sectors and Dual i/o SPI](https://www.winbond.com/resource-files/w25x40cl_f%2020140325.pdf)
